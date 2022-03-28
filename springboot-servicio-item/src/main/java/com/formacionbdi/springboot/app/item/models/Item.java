@@ -1,11 +1,12 @@
 package com.formacionbdi.springboot.app.item.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class Item {
+
     public Item() {
     }
 
@@ -13,6 +14,7 @@ public class Item {
         this.producto = producto;
         this.cantidad = cantidad;
     }
+
     private Producto producto;
     private Integer cantidad;
 

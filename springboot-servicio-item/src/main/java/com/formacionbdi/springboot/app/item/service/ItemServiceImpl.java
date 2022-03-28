@@ -1,10 +1,12 @@
 package com.formacionbdi.springboot.app.item.service;
 
+
 import com.formacionbdi.springboot.app.item.models.Item;
 import com.formacionbdi.springboot.app.item.models.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import com.formacionbdi.springboot.app.item.functional.GetItem;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,13 +15,8 @@ import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-@Service
+@Service("serviceRest")
 public class ItemServiceImpl implements ItemService{
-
-    @FunctionalInterface
-    interface GetItem{
-        Item getItem(Producto producto, Integer cantidad);
-    }
 
 
     private RestTemplate clienteRest;

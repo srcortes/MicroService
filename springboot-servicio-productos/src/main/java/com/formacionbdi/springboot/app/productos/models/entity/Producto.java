@@ -30,6 +30,6 @@ public class Producto implements Serializable {
     @GeneralAnnotation(value = "The Temporal annotation allow us keep only date")
     private Date createAt;
 
-    @Transient
+    @Transient//THIS ANNOTATION INDICATES US THAT THE FIELD, ISN'T PERSISTENT
     private Integer port;
 }

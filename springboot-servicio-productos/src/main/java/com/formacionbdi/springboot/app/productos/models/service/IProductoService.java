@@ -5,8 +5,8 @@ import com.formacionbdi.springboot.app.productos.models.entity.Producto;
 import java.util.List;
 
 public interface IProductoService {
-    public List<Producto> findAll();
-    public Producto findById(Long id);
-    public Producto save(Producto producto);
-    public void deleteById(Long id);
+    List<Producto> findAll();
+    Producto findById(Long id);
+    Producto save(Producto producto);
+    void deleteById(Long id);
 }

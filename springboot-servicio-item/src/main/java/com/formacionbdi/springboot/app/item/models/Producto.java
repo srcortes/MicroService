@@ -1,12 +1,12 @@
 package com.formacionbdi.springboot.app.item.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 public class Producto {
 
     private Long id;

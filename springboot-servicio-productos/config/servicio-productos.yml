@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:0}
+
+##Definimos la ubicacion del eureka
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    enabled: true
+    registryFetchIntervalSeconds: 60
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+##Annotations for handling time out
+ribbon:
+  okToRetryOnAllOperations: true
+  readTimeout: 50000
+  connectionTimeout: 50000
+  maxAutoRetries: 3
+  maxAutoRetriesNextServer: 3
+
+histrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000

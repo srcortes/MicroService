@@ -1,0 +1,14 @@
+---
+spring:
+  application:
+    name: servicio-eureka-server
+  profiles:
+    active: prod
+  config:
+    name: ${spring.application.name}
+  cloud:
+    config:
+      uri: ${http://localhost:8888}
+
+  main:
+    allow-bean-definition-override: true

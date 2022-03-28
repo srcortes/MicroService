@@ -1,0 +1,27 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+management:
+  endpoints:
+    shutdown:
+      enabled: true
+    metrics:
+      enabled: true
+    loggers:
+      enabled: true
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+  health:
+    default:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      functionality: eurekaServer
