@@ -1,0 +1,37 @@
+server:
+  port: 8090 #Puerto por defecto para temas de apigateway
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    enabled: true
+    registryFetchIntervalSeconds: 60
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+##Annotations for handling time out
+ribbon:
+  okToRetryOnAllOperations: true
+  ReadTimeout: 1000000
+  ConnectionTimeout: 1000000
+  maxAutoRetries: 3
+  maxAutoRetriesNextServer: 3
+
+histrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500000
+
+#Configuration apigateway for micro services
+zuul:
+  routes:
+    productos:
+      serviceId: servicio-productos
+      path: /api/productos/**
+    items:
+      serviceId: servicio-items
+      path: /api/items/**

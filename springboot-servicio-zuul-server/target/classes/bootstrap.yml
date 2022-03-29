@@ -1,0 +1,12 @@
+---
+spring:
+  application:
+    name: servicio-zuul-server
+  config:
+    name: ${spring.application.name}
+  cloud:
+    config:
+      uri: ${http://localhost:8888}
+
+  main:
+    allow-bean-definition-override: true
