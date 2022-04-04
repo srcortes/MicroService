@@ -1,0 +1,26 @@
+server:
+  port: 8091
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: servicio-productos
+          uri: lb://servicio-productos #lb meaning load balancer
+          predicates:
+            - Path=/api/productos/**
+          filters:
+            - StripPrefix=2 #Here can we see thje number from segments in predicate
+        - id: servicio-items
+          uri: lb://servicio-items
+          predicates:
+            - Path=/api/items/**
+          filters:
+            - StripPrefix=2 #Here can we see thje number from segments in predicate  -
