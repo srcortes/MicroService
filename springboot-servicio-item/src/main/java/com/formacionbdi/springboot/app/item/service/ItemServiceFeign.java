@@ -30,7 +30,7 @@ public class ItemServiceFeign implements ItemService {
     }
 
     @Override
-    //@HystrixCommand(fallbackMethod = "metodoAlternativo")
+    @HystrixCommand(fallbackMethod = "metodoAlternativo")
     public Item findById(Long id, Integer cantidad) {
         GetItem getItem = Item::new;
         return getItem.getItem(productoClienteRest.detalle(id), cantidad);

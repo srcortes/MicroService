@@ -27,14 +27,14 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
-    @GetMapping(value = "/listar")
+    @GetMapping(value = "${api.url.lista}")
     @GeneralAnnotation("This method return a complete list producst that are getting from database")
     public List<Producto> listar(){
        Supplier<List<Producto>> supplier = productoService::findAll;
        return supplier.get();
     }
 
-    @GetMapping(value = "/ver/{id}")
+    @GetMapping(value = "${api.url.ver}")
     @GeneralAnnotation("This method get product from db for id")
     public Producto detalle(@PathVariable("id")
                             @InfoController(id= 0l, descriptionVariable = "Identify a product inside db") Long id){

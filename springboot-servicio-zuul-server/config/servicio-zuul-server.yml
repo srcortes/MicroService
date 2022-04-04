@@ -24,7 +24,7 @@ histrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 500000
+            timeoutInMilliseconds: 1000000
 
 #Configuration apigateway for micro services
 zuul:

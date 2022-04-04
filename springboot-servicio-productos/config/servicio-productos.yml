@@ -26,3 +26,9 @@ histrix:
         isolation:
           thread:
             timeoutInMilliseconds: 50000
+
+##Endpoint
+api:
+  url:
+    lista: /listar
+    ver: /ver/{id}
